@@ -2,7 +2,7 @@
 Author: dogeee-debug gxyhome030404@gmail.com
 Date: 2025-11-22 15:37:42
 LastEditors: dogeee-debug gxyhome030404@gmail.com
-LastEditTime: 2025-11-22 16:42:13
+LastEditTime: 2025-11-22 19:07:05
 Description: 主函数
 '''
 
@@ -68,7 +68,7 @@ def main():
         "bert_model"        
     )
 
-    print("\n📌 BERT 模型已保存到：bert_model/")
+    print("\nBert model saved!")
 
     # === 
     print("Completed!")

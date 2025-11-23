@@ -3,8 +3,7 @@ Author: dogeee-debug gxyhome030404@gmail.com
 Date: 2025-11-21 22:55:17
 LastEditors: dogeee-debug gxyhome030404@gmail.com
 LastEditTime: 2025-11-22 16:32:13
-FilePath: \nlp_experiment\src\train_bert.py
-Description: 这是默认设置,请设置`customMade`, 打开koroFileHeader查看配置 进行设置: https://github.com/OBKoro1/koro1FileHeader/wiki/%E9%85%8D%E7%BD%AE
+Description: BERT训练用于分词任务
 '''
 
 
@@ -42,7 +41,7 @@ class TokenDataset(Dataset):
             truncation=True,
             padding='max_length',
             max_length=self.max_len,
-            return_tensors='pt'
+            return_tensors='pt' # issue: https://github.com/huggingface/transformers/issues/20638?utm_source=chatgpt.com
         )
 
         input_ids = encoding['input_ids'].squeeze()
@@ -81,7 +80,8 @@ def train_bert(train_file, dev_file, label_list, output_dir='./src/models/bert_m
         num_train_epochs=3,
         weight_decay=0.01,
         logging_dir='./results/logs',
-        save_total_limit=1
+        save_total_limit=1,
+        report_to="none"  # 禁用 W&B，每次都跳这个太烦了我真操了
     )
 
     trainer = Trainer(

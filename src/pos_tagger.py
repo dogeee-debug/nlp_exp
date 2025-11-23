@@ -5,7 +5,6 @@ LastEditors: dogeee-debug gxyhome030404@gmail.com
 LastEditTime: 2025-11-22 15:56:42
 Description: 实现CRF词性标注
 '''
-
 import sklearn_crfsuite
 import joblib
 
